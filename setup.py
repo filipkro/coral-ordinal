@@ -23,7 +23,11 @@ with open(os.path.join(_here, 'README.md'), encoding='utf-8') as f:
 install_deps = ['numpy']
 
 if get_dist('tensorflow') is None and get_dist('tensorflow_gpu') is None and get_dist('tensorflow-cpu') is None:
+    print('Adding tensorflow>=2.2 to dependencies..')
     install_deps.append('tensorflow>=2.2')
+else:
+    print('Tensorflow already installed')
+
 
 setup(
     name = 'coral-ordinal',
